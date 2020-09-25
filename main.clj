@@ -110,7 +110,7 @@
   )
 )
 
-;; Función auxiliar que calcula la intersección de dos listas
+;; Función auxiliar que calcula la intersección de dos listas, en sentido de intersección de multiconjuntos
 
 (defn intersection[L1 L2]
   (cond
