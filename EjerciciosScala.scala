@@ -30,31 +30,64 @@ object EjerciciosScala {
     else if (l.head == o) true
     else false
 
+  /**
+   * Returns a list of pairs of elements from list l
+   * @param l
+   * @return
+   */
   def duplicar(l : List[Any]): List[Any] = {
     if (l.isEmpty) l
     else List(l.head, l.head) :: duplicar(l.tail)
   }
 
+  /**
+   * Returns a list of numbers from N to 1
+   * @param N
+   * @return
+   */
   def countdown(N : Int) : List[Int] = {
     if (N > 0) N :: countdown(N - 1)
     else List()
   }
 
+  /**
+   * Returns reversed list
+   * @param list
+   * @return
+   */
   def reverse(list : List[Any]) : List[Any] = {
     if (list.isEmpty) list
     else reverse(list.tail)::List(list.head)
   }
 
+  /**
+   * Returns a list where all elements of y are substituted by x
+   * @param x
+   * @param y
+   * @param ls
+   * @return
+   */
   def substitute(x : Any, y : Any, ls : List[Any]) : List[Any] = {
     if (!ls.contains(y)) ls
     else if (y == ls.head) x :: substitute( x, y, ls.tail)
     else ls.head :: substitute(x,y,ls.tail)
   }
 
+  /**
+   * Returns true if all elements in l1 are in l2 and viceversa. Else, returns false
+   * @param l1
+   * @param l2
+   * @return
+   */
   def setequal(l1 : List[Any], l2 : List[Any]) : Boolean = {
     l1.forall(x => l2.contains(x)) && l2.forall(x => l1.contains(x))
   }
 
+  /**
+   * Returns a list with elements in uneven indexes
+   * @param ls
+   * @return
+   */
   def impares(ls : List[Any]) : List[Any] = {
    if (ls.isEmpty || ls.tail.isEmpty) ls
    else ls.head :: impares(ls.splitAt(2)._2)
